@@ -1,0 +1,33 @@
+@import './var.scss';
+
+.navbar {
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 2em;
+
+  &_btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    a {
+      color: inherit;
+    }
+  }
+  
+  &_acc {
+    a {
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      span {
+        margin-top: 3px;
+        font-size: 20px;
+        color: $orange3;
+      }
+    }
+  }
+}

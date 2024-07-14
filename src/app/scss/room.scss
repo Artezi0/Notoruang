@@ -1,0 +1,15 @@
+@import './var.scss';
+
+.container {
+  width: 80%;
+  height: 90%;
+  position: relative;
+  background-color: #e7e7e7;
+  border: 1px solid #d3d3d3;
+}
+
+.target {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}

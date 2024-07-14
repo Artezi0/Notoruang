@@ -1,0 +1,78 @@
+@import './var.scss';
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ropa+Sans:ital@0;1&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+a {
+  color: $orange4;
+  text-decoration: none;
+  font-family: 'Ropa Sans';
+}
+
+button {
+  padding: 15px 30px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 100%;
+  font-family: 'Ropa Sans';
+  font-weight: 500;
+  font-size: 16px;
+  user-select: none;
+}
+
+input {
+  border: none;
+  outline: none;
+  background: none;
+  font-family: 'Fira Sans';
+  font-size: 16px;
+
+  &::placeholder {
+    color: $orange3;
+    opacity: 1; /* Firefox */
+  }  
+}
+
+.btn1 {
+  color: $orange3;
+  background-color: $orange1;
+
+  &:hover {
+    color: $orange1;
+    background-color: $orange3;
+  }
+}
+
+.btn2 {
+  color: $orange1;
+  background-color: $orange3;
+
+  &:hover {
+    color: white;
+  }
+}
+
+h1, h1, h3 {
+  font-family: 'Fira Sans', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+p {
+  font-family: 'Fira Sans', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+

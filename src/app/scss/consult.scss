@@ -1,0 +1,195 @@
+@import 'var.scss';
+
+.consult {
+  width: 100%;
+  height: 92vh;
+  display: flex;
+  background-color: $grey1;
+  padding: 10px;
+  gap: 10px;
+
+  &_profile {
+    width: 20%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2em;
+
+    .name {
+      font-weight: 700;
+      font-size: 20px;
+      color: $orange4;
+    }
+
+    a {
+      font-size: 20px;
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 2em 0;
+      
+      .avatar {
+        width: 128px;
+        height: 128px;
+        background-color: $orange3;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        position: relative;
+
+        .status {
+          bottom: 5%;
+          right: 5%;
+          width: 25px;
+          height: 25px;
+          background-color: green;
+          position: absolute;
+          border-radius: 50%;
+          border: 4px solid white;
+        }
+      }
+    }
+
+    &-feeds {
+      .feed {
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+
+        .content {
+          position: relative;
+          width: 5em;
+          height: 5em;
+          border-radius: 5px;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+  
+  &_chat {
+    width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+
+    &-top {
+      height: 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: $orange1;
+      border-radius: 5px;
+      padding: 1em 2em;
+      
+      .info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        
+        &_img {
+          position: relative;
+          width: 3em;
+          height: 3em;
+        }
+
+        &_name {
+          .name {
+            font-weight: 600;
+          }
+          .status {
+            color: green;
+          }
+        }
+      }
+
+      .cta {
+        display: flex;
+        gap: 2px;
+        border-radius: 5px;
+        overflow: hidden;
+
+        button {
+          border-radius: 0;
+        }
+      }
+    }
+
+    &-view {
+      height: 80%;
+      width: 100%;
+      padding: 2em 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+      
+      .sender {
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+
+        .avatar {
+          width: 30px;
+          height: 30px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        &_text {
+          background-color: $orange3;
+          color: white;
+          padding: 10px;
+          border-radius: 10px;
+        }
+      }
+
+      .receiver {
+        width: 50%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        
+        .avatar {
+          width: 30px;
+          height: 30px;
+          position: relative;
+          border-radius: 50%;
+          overflow: hidden;
+        }
+
+        &_text {
+          width: fit-content;
+          background-color: $orange1;
+          color: $orange3;
+          padding: 10px;
+          border-radius: 10px;
+          
+        }
+      }
+    }
+
+    &-input {
+      height: 10%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      background-color: $orange1;
+      border-radius: 5px;
+
+      button {
+        font-size: 20px;
+      }
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+}

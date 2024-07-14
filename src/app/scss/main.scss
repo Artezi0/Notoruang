@@ -1,0 +1,112 @@
+@import './var.scss';
+
+.main {
+  height: 92vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em 2em;
+  gap: 2em;
+  background-image: url('../image/wave.svg');
+  background-position: bottom;
+  background-size: cover;
+
+  &_title {
+    text-align: center;
+    width: fit-content;
+
+    h1 {
+      color: $orange4;
+      font-size: 50px;
+      font-weight: 800;
+    }
+
+    p {
+      color: $yellow4;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    &-search {
+      margin-top: 2em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: $orange3;
+      background-color: $orange1;
+      padding: .8em;
+      border-radius: 5px;
+
+      input {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }  
+
+  &_projects {
+    width: 100%;
+
+    h3 {
+      color: $orange4;
+      font-size: 20px;
+    }
+
+    &-project {
+      margin: 2em 0;
+
+      .slick-slide > div {
+        margin: 0 10px;
+      }
+      .slick-list {
+        margin: 0 -10px;
+      }
+
+      .project {
+        height: 12em;
+        border-radius: 10px;
+        padding: .5em;
+        position: relative;
+        background-color: white;
+
+        &_img {
+          height: 85%;
+          width: 100%;
+          background-color: $orange2;
+          border-radius: 5px;
+          overflow: hidden;
+          position: relative;
+        }
+
+        p {
+          margin-top: .5em;
+        }
+      }
+    }
+
+    &-add {
+      position: absolute;
+      right: 2em;
+
+      button {
+        width: 2em;
+        height: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $yellow4;
+        font-weight: 400;
+        border-radius: 50%;
+        font-size: 35px;
+        
+        a {
+          padding: 0;
+          color: white;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
