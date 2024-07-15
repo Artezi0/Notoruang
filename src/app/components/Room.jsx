@@ -8,18 +8,7 @@ import '../scss/room.scss'
 
 export default function Room() {
   const moveableRef = useRef(null)
-  const selectoRef = useRef(null)
   const [targets, setTargets] = useState([])
-  const groupManager = useMemo(() => new GroupManager([]), [])
-  const setSelectedTargets = useCallback((nextTargetes) => {
-    selectoRef.current.setSelectedTargets(deepFlat(nextTargetes))
-    setTargets(nextTargetes)
-  }, [])
-
-  useEffect(() => {
-    const elements = selectoRef.current.getSelectableElements()
-    groupManager.set([], elements)
-  }, [])
 
   return (
     <section className='container'>
@@ -51,14 +40,8 @@ export default function Room() {
         onRotate={e => {
             e.target.style.transform = e.drag.transform;
         }}
-        onRenderGroup={e => {
-          e.events.forEach(ev => {
-              ev.target.style.cssText += ev.cssText;
-          });
-        }}
       />
       <Selecto
-        ref={selectoRef}
         dragContainer={".container"}
         selectableTargets={[".target"]}
         hitRate={0}
@@ -69,40 +52,22 @@ export default function Room() {
         onDragStart={(e) => {
           const moveable = moveableRef.current
           const target = e.inputEvent.target
-          const flatted = deepFlat(targets)
           if (
             moveable.isMoveableElement(target)
-            || flatted.some(t => t === target || t.contains(target))
+            || targets.some(t => t === target || t.contains(target))
           ) {
             e.stop()
           }
         }}
         onSelectEnd={e => {
-          const {
-            isDragStart,
-            added,
-            removed,
-            inputEvent,
-          } = e
-          const moveable = moveableRef.current;
-        
-          if (isDragStart) {
-              inputEvent.preventDefault();
-          
+          const moveable = moveableRef.current
+          if (e.isDragStart) {
+              e.inputEvent.preventDef 
               moveable.waitToChangeTarget().then(() => {
-                  moveable.dragStart(inputEvent);
+                  moveable.dragStart(e.inputEvent);
               });
           }
-          let nextChilds
-        
-          if (isDragStart) {
-              nextChilds = groupManager.selectCompletedChilds(targets, added, removed);
-          } else {
-              nextChilds = groupManager.selectSameDepthChilds(targets, added, removed);
-          }
-        
-          e.currentTarget.setSelectedTargets(nextChilds.flatten());
-          setSelectedTargets(nextChilds.targets());
+          setTargets(e.selected);
         }}
       />
     </section>

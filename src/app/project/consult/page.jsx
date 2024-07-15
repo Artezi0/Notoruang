@@ -17,7 +17,7 @@ export default function consult() {
           <a href="/project"><FaArrowLeft /></a>
           <div className='consult_profile-info'>
             <div className='avatar'>
-              <Image src={`/avatar.png`} layout='fill'/>
+              <Image src={`/avatar.png`} layout='fill' alt='avatar'/>
               <span className='status'></span>
             </div>
             <p className='name'>Mika</p>
@@ -26,19 +26,19 @@ export default function consult() {
           <div className='consult_profile-feeds'>
             <p className='name'>Feed</p>
             <div className='feed'>
-              <div className='content'><Image src={`/item/clock.png`} loader="lazy" layout='fill' alt='feed'/></div>
-              <div className='content'><Image src={`/item/clock2.png`} loader="lazy" layout='fill' alt='feed'/></div>
-              <div className='content'><Image src={`/item/vase.png`} loader="lazy" layout='fill' alt='feed'/></div>
-              <div className='content'><Image src={`/item/vase2.png`} loader="lazy" layout='fill' alt='feed'/></div>
-              <div className='content'><Image src={`/room1.jpg`} loader="lazy" layout='fill' alt='feed'/></div>
-              <div className='content'><Image src={`/room5.jpg`} loader="lazy" layout='fill' alt='feed'/></div>
+              <div className='content'><Image src={`/item/clock.png`} layout='fill' alt='feed'/></div>
+              <div className='content'><Image src={`/item/clock2.png`} layout='fill' alt='feed'/></div>
+              <div className='content'><Image src={`/item/vase.png`} layout='fill' alt='feed'/></div>
+              <div className='content'><Image src={`/item/vase2.png`} layout='fill' alt='feed'/></div>
+              <div className='content'><Image src={`/room1.jpg`} layout='fill' alt='feed'/></div>
+              <div className='content'><Image src={`/room5.jpg`} layout='fill' alt='feed'/></div>
             </div>
           </div>
         </section>
         <section className='consult_chat'>
           <div className='consult_chat-top'>
             <div className='info'>
-              <div className='info_img'><Image src={`/avatar.png`} layout='fill' /></div>
+              <div className='info_img'><Image src={`/avatar.png`} layout='fill' alt='avatar'/></div>
               <div className='info_name'>
                 <p className='name'>Mika</p>
                 <p className='status'>● Online</p>
@@ -52,25 +52,25 @@ export default function consult() {
           <div className='consult_chat-view'>
             <div className='sender'>
               <div className='avatar'>
-                <Image src={`/avatar.png`} layout='fill'/>
+                <Image src={`/avatar.png`} layout='fill' alt='avatar'/>
               </div>
               <div className='sender_text'><p>Halo kak, kami butuh bantuan desain untuk ruang tamu dongg</p></div>
             </div>
             <div className='receiver'>
               <div className='avatar'>
-                <Image src={`/avatar2.jpg`} layout='fill'/>
+                <Image src={`/avatar2.jpg`} layout='fill' alt='avatar'/>
               </div>
               <div className='receiver_text'><p>Baik, ada yang bisa kami bantu?</p></div>
             </div>
             <div className='sender'>
               <div className='avatar'>
-                <Image src={`/avatar.png`} layout='fill'/>
+                <Image src={`/avatar.png`} layout='fill' alt='avatar'/>
               </div>
               <div className='sender_text'><p>Untuk ruang tamu berukuran 20 meter persegi dengan nuansa ruangan klasik, baiknya memakai vas yang seperti apa ya</p></div>
             </div>
             <div className='receiver'>
               <div className='avatar'>
-                <Image src={`/avatar2.jpg`} layout='fill'/>
+                <Image src={`/avatar2.jpg`} layout='fill' alt='avatar'/>
               </div>
               <div className='receiver_text'><p>Terima kasih atas pertanyaannya, karena diameternya tidak teralu besar dan bernuansa klasik, kami rekomendasikan untuk menggunakan Vas yang terbuat dari tanah liat asli bewarna tua</p></div>
             </div>
