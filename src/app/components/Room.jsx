@@ -1,9 +1,7 @@
 import Image from 'next/image'
-import React, { useRef, useState, useMemo, useEffect, useCallback } from 'react'
+import React, { useRef, useState } from 'react'
 import Moveable from 'react-moveable'
-import { GroupManager } from "@moveable/helper"
 import Selecto from 'react-selecto'
-import { deepFlat } from "@daybrush/utils"
 import '../scss/room.scss'
 
 export default function Room() {
