@@ -21,7 +21,8 @@
       height: 100%;
       gap: 10px;    
       position: relative;
-  
+      z-index: 2;
+
       &_tab {
         width: 100%;
         display: flex;
@@ -46,7 +47,7 @@
       }
     
       &_content {
-        right: calc(-300% - 18px);
+        left: calc(100% + 10px);
         height: 100%;
         width: 25em;
         background-color: white;
@@ -118,6 +119,7 @@
       display: flex;
       gap: 10px;    
       position: relative;
+      z-index: 2;
       
       &_tab {
         height: 100%;
@@ -147,7 +149,8 @@
         background-color: white;
         border-radius: 10px;
         position: absolute;
-        
+        display: flex;
+        flex-direction: column;
   
         &_img {
           margin-bottom: 2em;
@@ -206,6 +209,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      z-index: 1;
     }
   }
 

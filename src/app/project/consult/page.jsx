@@ -26,12 +26,12 @@ export default function consult() {
           <div className='consult_profile-feeds'>
             <p className='name'>Feed</p>
             <div className='feed'>
-              <div className='content'><Image src={`/item/clock.png`} layout='fill' alt='feed'/></div>
-              <div className='content'><Image src={`/item/clock2.png`} layout='fill' alt='feed'/></div>
-              <div className='content'><Image src={`/item/vase.png`} layout='fill' alt='feed'/></div>
-              <div className='content'><Image src={`/item/vase2.png`} layout='fill' alt='feed'/></div>
-              <div className='content'><Image src={`/room1.jpg`} layout='fill' alt='feed'/></div>
-              <div className='content'><Image src={`/room5.jpg`} layout='fill' alt='feed'/></div>
+              <div className='content'><Image src={`/decor/clock.png`} fill alt='feed'/></div>
+              <div className='content'><Image src={`/decor/clock2.png`} fill alt='feed'/></div>
+              <div className='content'><Image src={`/decor/vase.png`} fill alt='feed'/></div>
+              <div className='content'><Image src={`/decor/vase2.png`} fill alt='feed'/></div>
+              <div className='content'><Image src={`/room1.jpg`} fill alt='feed'/></div>
+              <div className='content'><Image src={`/room5.jpg`} fill alt='feed'/></div>
             </div>
           </div>
         </section>

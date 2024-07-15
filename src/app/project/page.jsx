@@ -41,8 +41,8 @@ export default function Project() {
                   <span><HiOutlineAdjustmentsHorizontal/></span>
                 </div>
                 <div className='sidebar_content-items'>
-                  <div className='item'><Image src={`/basic/desk.png`} loading='lazy' layout='fill' alt='item'/></div>
-                  <div className='item'><Image src={`/basic/sofa.png`} loading='lazy' layout='fill' alt='item'/></div>
+                  <div className='item'><Image src={`/basic/desk.png`} loading='lazy' fill objectFit='contain' alt='item'/></div>
+                  <div className='item'><Image src={`/basic/sofa.png`} loading='lazy' fill objectFit='contain' alt='item'/></div>
                 </div>
               </div>
             }
@@ -54,10 +54,10 @@ export default function Project() {
                   <span><HiOutlineAdjustmentsHorizontal/></span>
                 </div>
                 <div className='sidebar_content-items'>
-                  <div className='item'><Image src={`/decor/clock.png`} loading='lazy' layout='fill'  alt='item'/></div>
-                  <div className='item'><Image src={`/decor/clock2.png`} loading='lazy' layout='fill'  alt='item'/></div>
-                  <div className='item'><Image src={`/decor/vase.png`} loading='lazy' layout='fill'  alt='item'/></div>
-                  <div className='item'><Image src={`/decor/vase2.png`} loading='lazy' layout='fill'  alt='item'/></div>
+                  <div className='item'><Image src={`/decor/clock.png`} loading='lazy' objectFit='contain' fill alt='item'/></div>
+                  <div className='item'><Image src={`/decor/clock2.png`} loading='lazy' objectFit='contain' fill alt='item'/></div>
+                  <div className='item'><Image src={`/decor/vase.png`} loading='lazy' objectFit='contain' fill alt='item'/></div>
+                  <div className='item'><Image src={`/decor/vase2.png`} loading='lazy' objectFit='contain' fill alt='item'/></div>
                 </div>
               </div>
             }
@@ -71,7 +71,7 @@ export default function Project() {
                 <div className='sidebar_content-shop'>
                   <div className='shop'>
                     <div className='shop_img'>
-                      <Image src={`/shop/clock.png`} loading='lazy' layout='fill' objectFit='contain' alt='item'/>
+                      <Image src={`/shop/clock.png`} loading='lazy' fill objectFit='contain' alt='item'/>
                     </div>
                     <div className='shop_info'>
                       <h3>Jam Kayu Jati</h3>
@@ -81,7 +81,7 @@ export default function Project() {
                   </div>
                   <div className='shop'>
                     <div className='shop_img'>
-                      <Image src={`/shop/pot.png`} loading='lazy' layout='fill' objectFit='contain' alt='item'/>
+                      <Image src={`/shop/pot.png`} loading='lazy' fill objectFit='contain' alt='item'/>
                     </div>
                     <div className='shop_info'>
                       <h3>Vas Bunga Gerabah</h3>
