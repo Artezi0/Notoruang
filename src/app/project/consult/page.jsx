@@ -17,30 +17,29 @@ export default function consult() {
           <a href="/project"><FaArrowLeft /></a>
           <div className='consult_profile-info'>
             <div className='avatar'>
-              <Image src={`/avatar.png`} layout='fill' alt='avatar'/>
               <span className='status'></span>
             </div>
-            <p className='name'>Mika</p>
-            <p className='bio'>Naturalist</p>
+            <p className='name'>Pelatihan Wisata Edukasia Kasongan</p>
+            <p className='bio'>Seller</p>
           </div>
           <div className='consult_profile-feeds'>
             <p className='name'>Feed</p>
             <div className='feed'>
-              <div className='content'><Image src={`/decor/clock.png`} fill alt='feed'/></div>
-              <div className='content'><Image src={`/decor/clock2.png`} fill alt='feed'/></div>
-              <div className='content'><Image src={`/decor/vase.png`} fill alt='feed'/></div>
-              <div className='content'><Image src={`/decor/vase2.png`} fill alt='feed'/></div>
-              <div className='content'><Image src={`/room1.jpg`} fill alt='feed'/></div>
-              <div className='content'><Image src={`/room5.jpg`} fill alt='feed'/></div>
+              <div className='content'><Image src={`/feed.png`} fill alt='feed'/></div>
+              <div className='content'><Image src={`/feed.png`} fill alt='feed'/></div>
+              <div className='content break'><Image src={`/feed.png`} fill alt='feed'/></div>
+              <div className='content'><Image src={`/feed.png`} fill alt='feed'/></div>
+              <div className='content'><Image src={`/feed.png`} fill alt='feed'/></div>
+              <div className='content'><Image src={`/feed.png`} fill alt='feed'/></div>
             </div>
           </div>
         </section>
         <section className='consult_chat'>
           <div className='consult_chat-top'>
             <div className='info'>
-              <div className='info_img'><Image src={`/avatar.png`} layout='fill' alt='avatar'/></div>
+              <div className='info_img'></div>
               <div className='info_name'>
-                <p className='name'>Mika</p>
+                <p className='name'>Pelatihan Wisata Edukasia Kasongan</p>
                 <p className='status'>● Online</p>
               </div>
             </div>

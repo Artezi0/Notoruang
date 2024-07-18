@@ -1,0 +1,51 @@
+{
+  "decor": [
+    {
+      "uid" : 1,
+      "name": "vase", 
+      "image": "/decor/vase.png",
+      "asset": "/2d/vase.png",
+      "width": 60,
+      "height": 60,
+      "green": true
+    },
+    {
+      "uid" : 2,
+      "name":  "vase2", 
+      "image": "/decor/vase2.png",
+      "asset": "/2d/vase2.png",
+      "width": 100,
+      "height": 100,
+      "green": true
+    },
+    {
+      "uid" : 3,
+      "name":  "pot", 
+      "image": "/decor/pot.png",
+      "asset": "/2d/pot.png",
+      "width": 60,
+      "height": 60,
+      "green": false
+    }
+  ],
+  "basic": [
+    {
+      "uid" : 4,
+      "name":  "table", 
+      "image": "/basic/table.png",
+      "asset": "/2d/table.png",
+      "width": 120,
+      "height": 120,
+      "green": true
+    },
+    {
+      "uid" : 5,
+      "name":  "chair", 
+      "image": "/basic/chair.png",
+      "asset": "/2d/chair.png",
+      "width": 120,
+      "height": 120,
+      "green": false
+    }
+  ]
+}

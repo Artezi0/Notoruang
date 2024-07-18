@@ -18,6 +18,7 @@
     "react-moveable": "^0.56.0",
     "react-selecto": "^1.26.3",
     "react-slick": "^0.30.2",
+    "react-uid": "^2.3.3",
     "sass": "^1.77.6"
   },
   "devDependencies": {

@@ -23,6 +23,11 @@ export default function Navbar({ state }) {
             </button>
           </div>
         }
+        {state == 2 &&
+          <div className='navbar_acc'>
+            <a href="/project">Go Back</a>
+           </div>
+        }
     </nav>
   )
 }

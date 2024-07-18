@@ -19,17 +19,21 @@
       font-size: 20px;
       color: $orange4;
     }
-
+    
     a {
       font-size: 20px;
     }
-
+    
     &-info {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       margin: 2em 0;
+
+      .name {
+        text-align: center;
+      }
       
       .avatar {
         width: 128px;
@@ -55,14 +59,15 @@
     &-feeds {
       .feed {
         margin-top: 10px;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        display: flex;
         gap: 10px;
-
+        flex-wrap: wrap;
+        flex-grow: 1;
+      
         .content {
           position: relative;
-          width: 5em;
-          height: 5em;
+          width: 70px;
+          height: 70px;
           border-radius: 5px;
           overflow: hidden;
         }
@@ -94,6 +99,8 @@
           position: relative;
           width: 3em;
           height: 3em;
+          background-color: $orange3;
+          border-radius: 50%;
         }
 
         &_name {

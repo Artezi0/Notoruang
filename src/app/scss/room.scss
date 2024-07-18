@@ -1,16 +1,31 @@
 @import './var.scss';
 
-.container {
-  width: 80%;
+.room {
   height: 90%;
+  width: 80%;
   position: relative;
+  padding: 10px;
+  border: 1px solid black;
+  background-color: white;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
   background-color: #e7e7e7;
-  border: 1px solid #d3d3d3;
   overflow: hidden;
+  background-image: url('../image/grid2.png');
+  background-blend-mode: overlay;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  flex-wrap: wrap;
 }
 
 .target {
-  width: 100px;
-  height: 100px;
   position: relative;
-}
+  height: fit-content;
+} 
