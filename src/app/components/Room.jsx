@@ -10,18 +10,6 @@ export default function Room() {
   const [targets, setTargets] = useState([])
   const [active, setActive] = useState()
   
-  console.log(active, data)
-
-  window.addEventListener('keyup', 
-    function removeItemOnce() {
-      var index = data.indexOf(active);
-      if (index > -1) {
-        
-      }
-      return arr;
-    }    
-  )
-
   return (
   <section className='room'>
     <div className='container'>
