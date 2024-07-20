@@ -8,19 +8,21 @@ import '../scss/room.scss'
 export default function Room() {
   const moveableRef = useRef(null)
   const [targets, setTargets] = useState([])
-  const [active, setActive] = useState()
+  const [active, setActive] = useState(false)
   
+  console.log(active)
+
   return (
   <section className='room'>
     <div className='container'>
       {data.map(({uid, asset, width, height}) => {
         return (
-          <div className='target' key={uid} onClick={() => setActive(uid)}>
+          <div className='target' key={uid}>
             <Image src={`${asset}`} loading='lazy' alt='item' width={width} height={height}/>
           </div>
         )
       })}
-      <Moveable 
+      <Moveable
         ref={moveableRef}
         target={targets}
         individualGroupable={true}

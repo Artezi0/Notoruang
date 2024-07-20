@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../scss/navbar.scss'
 import Image from 'next/image'
 import { CgProfile } from "react-icons/cg";
 
 export default function Navbar({ state }) {
+  const [user, isUser] = useState(false)
+
   return (
     <nav className='navbar'>
       <div className='navbar_logo'>
@@ -11,9 +13,10 @@ export default function Navbar({ state }) {
       </div>
         {state == 0 && 
           <div className='navbar_acc'>
-            <a href="/">
-              Joe <span><CgProfile /></span>
-            </a>
+            {user ? 
+              <a href="/">Joe <span><CgProfile /></span></a> :
+              <button type="button" className='btn2'><a href="/login">Login</a></button>
+            }
           </div>
         }
         {state == 1 &&
@@ -26,7 +29,7 @@ export default function Navbar({ state }) {
         {state == 2 &&
           <div className='navbar_acc'>
             <a href="/project">Go Back</a>
-           </div>
+          </div>
         }
     </nav>
   )

@@ -16,9 +16,9 @@ body {
 }
 
 a {
-  color: $orange4;
   text-decoration: none;
   font-family: 'Ropa Sans';
+  color: inherit;
 }
 
 button {
@@ -41,6 +41,19 @@ input {
   font-family: 'Fira Sans';
   font-size: 16px;
 
+  &::placeholder {
+    color: $orange3;
+    opacity: 1; /* Firefox */
+  }  
+}
+
+select {
+  border: none;
+  outline: none;
+  background: none;
+  font-family: 'Fira Sans';
+  font-size: 16px;
+  
   &::placeholder {
     color: $orange3;
     opacity: 1; /* Firefox */

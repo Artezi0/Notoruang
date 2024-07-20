@@ -33,37 +33,37 @@ export default function Home() {
           <Slider className="main_projects-project" {...settings}>
             <div className="project">
               <div className="project_img">
-                <Image src={`/room1.jpg`} alt="thumb" layout="fill"/>
+                <Image src={`/rooms/room1.jpg`} alt="thumb" fill/>
               </div>
               <p>Room 1</p>
             </div>
             <div className="project">
               <div className="project_img">
-                <Image src={`/room2.jpg`} alt="thumb" layout="fill"/>
+                <Image src={`/rooms/room2.jpg`} alt="thumb" fill/>
               </div>
               <p>Room 2</p>
             </div>
             <div className="project">
               <div className="project_img">
-                <Image src={`/room3.jpg`} alt="thumb" layout="fill"/>
+                <Image src={`/rooms/room3.jpg`} alt="thumb" fill/>
               </div>
               <p>Room 3</p>
             </div>
             <div className="project">
               <div className="project_img">
-                <Image src={`/room4.jpg`} alt="thumb" layout="fill"/>
+                <Image src={`/rooms/room4.jpg`} alt="thumb" fill/>
               </div>
               <p>Room 4</p>
             </div>
             <div className="project">
               <div className="project_img">
-                <Image src={`/room5.jpg`} alt="thumb" layout="fill"/>
+                <Image src={`/rooms/room5.jpg`} alt="thumb" fill/>
               </div>
               <p>Room 5</p>
             </div>
             <div className="project">
               <div className="project_img">
-                <Image src={`/room6.jpg`} alt="thumb" layout="fill"/>
+                <Image src={`/rooms/room6.jpg`} alt="thumb" fill/>
               </div>
               <p>Room 6</p>
             </div>
