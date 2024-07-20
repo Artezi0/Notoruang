@@ -10,7 +10,7 @@ import Image from "next/image";
 import './scss/main.scss'
 import { useRouter } from "next/navigation";
 
-export default function home() {
+export default function Home() {
   const [ project, setProject ] = useState([])
   const router = useRouter()
 
