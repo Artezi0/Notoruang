@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from 'react'
 import '../scss/navbar.scss'
 import Image from 'next/image'
