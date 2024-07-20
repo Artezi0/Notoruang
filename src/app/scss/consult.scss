@@ -30,7 +30,7 @@
       align-items: center;
       justify-content: center;
       margin: 2em 0;
-
+      
       .name {
         text-align: center;
       }
@@ -42,6 +42,14 @@
         border-radius: 50%;
         margin-bottom: 10px;
         position: relative;
+        
+        &_img {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          position: relative;
+          border-radius: 50%;
+        }
 
         .status {
           bottom: 5%;
@@ -58,16 +66,18 @@
 
     &-feeds {
       .feed {
+        width: 100%;
+        height: 10em;
         margin-top: 10px;
-        display: flex;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        white-space: nowrap;
         gap: 10px;
-        flex-wrap: wrap;
-        flex-grow: 1;
-      
+        
         .content {
           position: relative;
-          width: 70px;
-          height: 70px;
+          width: 100%;
+          height: 100%;
           border-radius: 5px;
           overflow: hidden;
         }
@@ -101,6 +111,7 @@
           height: 3em;
           background-color: $orange3;
           border-radius: 50%;
+          overflow: hidden;
         }
 
         &_name {

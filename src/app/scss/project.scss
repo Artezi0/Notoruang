@@ -104,6 +104,7 @@
           gap: 10px;
     
           .shop {
+            height: fit-content;
             display: flex;
             align-items: center;
             background-color: $orange1;
@@ -127,6 +128,61 @@
               position: relative;
               width: 8em;
               height: 8em;
+            }
+          }
+        }
+
+        &-consult {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 2em;
+
+          .image {
+            &_up {
+              margin: 10px 0;
+              width: 100%;
+              height: 15em;
+              position: relative;
+              border-radius: 5px;
+              overflow: hidden;
+            }
+            &_input {
+              width: 100%;
+              display: flex;
+              gap: 5px;
+              align-items: center;
+              color: $orange3;
+
+              input {
+                height: 40px;
+                padding: 10px;
+                width: 100%;
+                border: 1px solid $orange3;
+                border-radius: 5px;
+              }
+            }
+          }
+
+          .submit {
+            width: 100%;
+        
+            &_btn {
+              display: flex;
+              gap: 10px;
+              margin: 10px 0;
+
+              button {
+                width: 100%;
+
+                a {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 5px;
+                }
+              }
             }
           }
         }
@@ -160,80 +216,6 @@
           font-size: 25px;
         }
       }
-      
-      .consult {
-        right: calc(100% + 10px);
-        height: 100%;
-        width: 20em;
-        padding: 10px;
-        background-color: white;
-        border-radius: 10px;
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-  
-        &_img {
-          margin-bottom: 2em;
-
-          &-input {
-            width: 20em;
-            display: flex;
-            position: relative;
-            gap: 5px;
-
-            input {
-              width: 25%;
-              border: 1px solid $orange3;
-              border-radius: 5px;
-            }
-          }
-            
-          &-up {
-            width: 100%;
-            height: 10em;
-            background-color: $orange1;
-            border-radius: 5px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: $orange3;
-            position: relative;
-            margin: 10px 0;
-            overflow: hidden;
-            
-            span {
-              font-size: 30px;
-            }
-    
-            input {
-              width: 100%;
-              height: 100%;
-              position: absolute;
-              opacity: 0;
-            }
-          }
-        }
-        
-        &_submit {
-          &-btn {
-            margin-top: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            
-            button {
-              a {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 5px;
-                color: inherit;
-              }
-            }
-          }
-        }
-      }
     }
   
     .view {
@@ -243,9 +225,10 @@
       justify-content: center;
       align-items: center;
       z-index: 1;
+      overflow: hidden;
+      position: relative;
     }
   }
-
 
   &_set {
     height: 10%;

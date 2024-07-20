@@ -1,19 +1,38 @@
 'use client';
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar"
 import Slider from "react-slick";
 import { IoSearch } from "react-icons/io5";
+import { doc, collection, onSnapshot, addDoc, deleteDoc } from 'firebase/firestore'
+import { db } from "./firebase";
 import Image from "next/image";
 import './scss/main.scss'
+import { useRouter } from "next/navigation";
 
-export default function Home() {
+export default function home() {
+  const [ project, setProject ] = useState([])
+  const router = useRouter()
+
+  useEffect(() => {
+    onSnapshot(collection(db, 'project'), (snapShot) => {
+      let list = []      
+      snapShot.docs.forEach((doc) => {
+        list.push({ id: doc.id, ...doc.data() })
+      })  
+      setProject(list)
+    }, 
+    (error) => {
+      console.warn(error)
+  })}, [])
+
   const settings = {
     dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 6,
-    slidesToScroll: 3  
+    slidesToScroll: 3,
+    arrows: false
   }
 
   return (
@@ -30,46 +49,20 @@ export default function Home() {
         </section>
         <section className="main_projects">
           <h3>Your Project</h3>
-          <Slider className="main_projects-project" {...settings}>
-            <div className="project">
-              <div className="project_img">
-                <Image src={`/rooms/room1.jpg`} alt="thumb" fill/>
-              </div>
-              <p>Room 1</p>
-            </div>
-            <div className="project">
-              <div className="project_img">
-                <Image src={`/rooms/room2.jpg`} alt="thumb" fill/>
-              </div>
-              <p>Room 2</p>
-            </div>
-            <div className="project">
-              <div className="project_img">
-                <Image src={`/rooms/room3.jpg`} alt="thumb" fill/>
-              </div>
-              <p>Room 3</p>
-            </div>
-            <div className="project">
-              <div className="project_img">
-                <Image src={`/rooms/room4.jpg`} alt="thumb" fill/>
-              </div>
-              <p>Room 4</p>
-            </div>
-            <div className="project">
-              <div className="project_img">
-                <Image src={`/rooms/room5.jpg`} alt="thumb" fill/>
-              </div>
-              <p>Room 5</p>
-            </div>
-            <div className="project">
-              <div className="project_img">
-                <Image src={`/rooms/room6.jpg`} alt="thumb" fill/>
-              </div>
-              <p>Room 6</p>
-            </div>
-          </Slider>
-          <div className="main_projects-add">
-            <button type="button"><a href="../project">+</a></button>
+          <div className="main_projects-project project">
+            <button type="button" className="project_add btn2">+</button>
+            <Slider className="project_list" {...settings}>
+              {project.map(({ uid, title, image }) => {
+                return (
+                  <div className="item" key={uid} onClick={() => router.push('/project')}>
+                    <div className="item_img">
+                      <Image src={`/rooms/${image}`} alt="thumb" fill/>
+                    </div>
+                    <p>{title}</p>
+                  </div>
+                )
+              })}
+            </Slider>
           </div>
         </section>
       </main>

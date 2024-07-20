@@ -17,10 +17,13 @@ export default function consult() {
           <a href="/project"><FaArrowLeft /></a>
           <div className='consult_profile-info'>
             <div className='avatar'>
+              <div className='avatar_img'>
+                <Image src={`/avatar3.jpg`} alt='avatar' fill priority />
+              </div>
               <span className='status'></span>
             </div>
-            <p className='name'>Pelatihan Wisata Edukasia Kasongan</p>
-            <p className='bio'>Seller</p>
+            <p className='name'>Ray Suwarna</p>
+            <p className='bio'>Designer</p>
           </div>
           <div className='consult_profile-feeds'>
             <p className='name'>Feed</p>
@@ -37,9 +40,11 @@ export default function consult() {
         <section className='consult_chat'>
           <div className='consult_chat-top'>
             <div className='info'>
-              <div className='info_img'></div>
+              <div className='info_img'>
+                <Image src={`/avatar3.jpg`} alt='avatar' fill priority />
+              </div>
               <div className='info_name'>
-                <p className='name'>Pelatihan Wisata Edukasia Kasongan</p>
+                <p className='name'>Ray Suwarna</p>
                 <p className='status'>● Online</p>
               </div>
             </div>
@@ -57,7 +62,7 @@ export default function consult() {
             </div>
             <div className='receiver'>
               <div className='avatar'>
-                <Image src={`/avatar2.jpg`} layout='fill' alt='avatar'/>
+                <Image src={`/avatar3.jpg`} layout='fill' alt='avatar'/>
               </div>
               <div className='receiver_text'><p>Baik, ada yang bisa kami bantu?</p></div>
             </div>
@@ -69,7 +74,7 @@ export default function consult() {
             </div>
             <div className='receiver'>
               <div className='avatar'>
-                <Image src={`/avatar2.jpg`} layout='fill' alt='avatar'/>
+                <Image src={`/avatar3.jpg`} layout='fill' alt='avatar'/>
               </div>
               <div className='receiver_text'><p>Terima kasih atas pertanyaannya, karena diameternya tidak teralu besar dan bernuansa klasik, kami rekomendasikan untuk menggunakan Vas yang terbuat dari tanah liat asli bewarna tua</p></div>
             </div>

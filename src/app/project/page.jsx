@@ -37,13 +37,13 @@ export default function Project() {
     <>
       <Navbar state={1} />
       <section className='canvas'>
-        <Image className='background' src={`/grid.png`} alt='background' fill objectFit='cover' />
         <div className='canvas_content'>
           <div className='sidebar'>
             <div className='sidebar_tab'>
-              <button className='btn1' type='button'onClick={() => isBasic(!basic) & isDecor(false) & isShop(false)}><span><LuSofa /></span>Basic Element</button>
-              <button className='btn1' type='button'onClick={() => isDecor(!decor) & isBasic(false) & isShop(false)}><span><PiPottedPlant/></span>Home Decor</button>
-              <button className='btn1' type='button'onClick={() => isShop(!shop) & isBasic(false) & isDecor(false)}><span><LuShoppingCart/></span>Shop</button>
+              <button className='btn1' type='button' onClick={() => isBasic(!basic) & isDecor(false) & isShop(false) & isConsult(false)}><span><LuSofa /></span>Basic Element</button>
+              <button className='btn1' type='button' onClick={() => isDecor(!decor) & isBasic(false) & isShop(false) & isConsult(false)}><span><PiPottedPlant/></span>Home Decor</button>
+              <button className='btn1' type='button' onClick={() => isShop(!shop) & isBasic(false) & isDecor(false) & isConsult(false)}><span><LuShoppingCart/></span>Shop</button>
+              <button className='btn1' type='button' onClick={() => isConsult(!consult) & isBasic(false) & isDecor(false) & isShop(false)}><span><LuCrown /></span>Consult</button>
             </div>
             {basic &&
               <div className='sidebar_content'>
@@ -115,38 +115,34 @@ export default function Project() {
                 </div>
               </div>
             }
+            {consult &&
+              <div className="sidebar_content">
+                <div className="sidebar_content-consult">
+                  <div className='image'>
+                    <p>Upload reference photo</p>
+                    <div className='image_up'>
+                      <Image src={`/room7.jpg`} loading='lazy' objectFit='cover' fill alt='upload' />
+                    </div>
+                    <p>Room Dimension</p>
+                    <div className='image_input'>
+                      <input type="number" placeholder='P'/><p>x</p>
+                      <input type="number" placeholder='L'/><p>x</p>
+                      <input type="number" placeholder='T'/>
+                    </div>
+                  </div>
+                  <div className='submit'>
+                    <p>Consult and check your design</p>
+                    <div className='submit_btn'>
+                      <button className='btn2' type="button"><a href="/project/consult"><span><MdOutlinePermContactCalendar /></span>Contact</a></button>
+                      <button className='btn2' type="button"><a target='_blank' href="https://app.sketchup.com/share/tc/northAmerica/O1AEOqZXx5A?stoken=ihDZru6xAA4zhI-xNyonYu242O-yjnM0LEO6NXZS5Y5rF-SUlQpuylBcADsnSJra&source=web">View Sketchup</a></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
           </div>
           <div className='view'>
-            {room ? <Room zoom={zoom} /> : <button type='button' className='btn2' onClick={() => isRoom(true)}>Create Room +</button>}
-          </div>
-          <div className='control'>
-            <div className='control_tab'>
-              <button className='btn1' type='button'>Design</button>
-              <button className='btn1' onClick={() => isConsult(!consult)} type='button'><span><LuCrown /></span>Consult</button>
-            </div>
-            {consult &&
-            <div className="consult">
-              <div className='consult_img'>
-                <p>Upload reference photo</p>
-                <div className='consult_img-up'>
-                  <Image src={`/room7.jpg`} loading='lazy' objectFit='cover' fill alt='upload' />
-                </div>
-                <p>Room Dimension</p>
-                <div className='consult_img-input'>
-                  <input type="text" placeholder='P'/><p>x</p>
-                  <input type="text" placeholder='L'/><p>x</p>
-                  <input type="text" placeholder='T'/>
-                </div>
-              </div>
-              <div className='consult_submit'>
-                <p>Consult and check your design</p>
-                <div className='consult_submit-btn'>
-                  <button className='btn2' type="button"><a href="/project/consult"><span><MdOutlinePermContactCalendar /></span>Contact</a></button>
-                  <button className='btn2' type="button"><a target='_blank' href="https://app.sketchup.com/share/tc/northAmerica/aaS5cWa-_a0?stoken=tC_5RnDxsCP71OqK76pFzmW3R7cIrbpzhOfVLv3wTw_8_9_KpUVbdaZgLhqZ77hM&source=web">View Sketchup</a></button>
-                </div>
-              </div>
-            </div>
-            }
+            <Room zoom={zoom} />
           </div>
         </div>
         <div className="canvas_set">

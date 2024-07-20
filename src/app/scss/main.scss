@@ -30,15 +30,16 @@
     }
 
     &-search {
+      height: 40px;
       margin-top: 2em;
       display: flex;
       align-items: center;
       gap: 10px;
       color: $orange3;
       background-color: $orange1;
-      padding: .8em;
       border-radius: 5px;
-
+      padding: 0 1em;
+      
       input {
         width: 100%;
         height: 100%;
@@ -52,36 +53,55 @@
     h3 {
       color: $orange4;
       font-size: 20px;
+      margin-bottom: 10px;
     }
 
-    &-project {
-      margin: 2em 0;
+    .project {
+      width: 100%;
+      display: flex;
+      gap: 10px;
+      height: 12em;
+      position: relative;
 
-      .slick-slide > div {
-        margin: 0 10px;
+      &_add {
+        width: 15%;
+        font-size: 60px;
       }
-      .slick-list {
-        margin: 0 -10px;
-      }
 
-      .project {
-        height: 12em;
-        border-radius: 10px;
-        padding: .5em;
-        position: relative;
-        background-color: white;
-
-        &_img {
-          height: 85%;
-          width: 100%;
-          background-color: $orange2;
-          border-radius: 5px;
-          overflow: hidden;
-          position: relative;
+      &_list {
+        width: 100%;
+  
+        .add {
+          height: 200px;
+          font-size: 80px;
         }
-
-        p {
-          margin-top: .5em;
+  
+        .slick-slide > div {
+          margin: 0 10px;
+        }
+        .slick-list {
+          margin: 0 -10px;
+        }
+  
+        .item {
+          height: 200px;
+          border-radius: 10px;
+          padding: .5em;
+          position: relative;
+          background-color: white;
+  
+          &_img {
+            height: 85%;
+            width: 100%;
+            background-color: $orange2;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+          }
+  
+          p {
+            margin-top: .5em;
+          }
         }
       }
     }

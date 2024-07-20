@@ -10,7 +10,9 @@ export default function page() {
     <section className='shop'>
       <section className='shop_info'>
         <div className='shop_info-details'>
-          <div className='avatar'></div>
+          <div className='avatar'>
+            <Image src={`/avatar2.jpg`} alt='avatar' priority fill/>
+          </div>
           <h2 className='name'>Pelatihan Wisata Edukasia Kasongan</h2>
           <p className='bio'>#Natural</p>
         </div>
@@ -47,14 +49,14 @@ export default function page() {
             <Image src={`/shop/pot.png`} loading='lazy' fill objectFit='contain' alt='item'/>
           </div>
           <div className='product_info'>
-            <h2 className='name'>Jam Kayu Jati</h2>
+            <h2 className='name'>Vas Bunga Gerabah</h2>
             <p className='details'>Pelatihan Wisata Edukasia Kasongan - Jl. Kasongan No.217</p>
             <ul>
-              <li>Jam dari kayu jati industri pengrajin kayu Kasongan.</li>
-              <li>Bahan full kayu jati Kalimantan.</li>
-              <li>Warna asli dan jarum hitam.</li>
-              <li>Baterai AA.</li>
-              <li>Diameter 40 meter</li>
+              <li>Vas dari gerabah asli pengrajin Kasongan.</li>
+              <li>Bahan Gerabah asli Kasongan.</li>
+              <li>Bentuk standar dan kuat.</li>
+              <li>Produk Baru.</li>
+              <li>Diameter terluas 1 meter.</li>
             </ul>
             <h2 className='name price'>Rp98.000</h2>
           </div>

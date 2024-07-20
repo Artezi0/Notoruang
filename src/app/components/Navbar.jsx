@@ -15,17 +15,12 @@ export default function Navbar({ state }) {
       </div>
         {state == 0 && 
           <div className='navbar_acc'>
-            {user ? 
-              <a href="/">Joe <span><CgProfile /></span></a> :
-              <button type="button" className='btn2'><a href="/login">Login</a></button>
-            }
+            <a href="/">Joe <span><CgProfile /></span></a>
           </div>
         }
         {state == 1 &&
           <div className="navbar_btn">
-            <button className='btn2' type='button'>
-              <a href="/">Save</a>
-            </button>
+            <button className='btn2' type='button'>Save</button>
           </div>
         }
         {state == 2 &&
