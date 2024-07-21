@@ -11,7 +11,7 @@ import { FiPaperclip } from "react-icons/fi";
 import { MdMicNone } from "react-icons/md";
 import { useRouter } from 'next/navigation';
 
-export default function consult() {
+export default function Consult() {
   const router = useRouter()
 
   return (
