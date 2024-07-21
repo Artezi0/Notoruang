@@ -1,9 +1,9 @@
 "use client"
 
-import React, { useState, useId } from 'react'
-import Navbar from '../components/Navbar'
+import React, { useState } from 'react'
+import Navbar from '@/app/components/Navbar';
 import Image from 'next/image';
-import Room from '../components/Room';
+import Room from '@/app/components/Room';
 import { PiPottedPlant } from "react-icons/pi";
 import { LuSofa } from "react-icons/lu";
 import { IoSearch } from "react-icons/io5";
@@ -12,8 +12,8 @@ import { LuCrown } from "react-icons/lu";
 import { LuShoppingCart } from "react-icons/lu";
 import { MdOutlinePermContactCalendar } from "react-icons/md";
 import data from './data.json'
-import roomData from '../components/data.json'
-import '../scss/project.scss'
+import roomData from '@/app/components/data.json'
+import '@/app/scss/project.scss'
 
 export default function Project() {
   const [basic, isBasic] = useState(false)
@@ -121,7 +121,7 @@ export default function Project() {
                   <div className='image'>
                     <p>Upload reference photo</p>
                     <div className='image_up'>
-                      <Image src={`/room7.jpg`} loading='lazy' objectFit='cover' fill alt='upload' />
+                      <Image src={`/rooms/room7.jpg`} loading='lazy' objectFit='cover' fill alt='upload' />
                     </div>
                     <p>Room Dimension</p>
                     <div className='image_input'>

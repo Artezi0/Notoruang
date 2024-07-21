@@ -1,3 +1,5 @@
+"use client"
+
 import Navbar from '@/app/components/Navbar'
 import React from 'react'
 import Image from 'next/image'
@@ -7,14 +9,17 @@ import { BsTelephone } from "react-icons/bs";
 import { FiVideo } from "react-icons/fi";
 import { FiPaperclip } from "react-icons/fi";
 import { MdMicNone } from "react-icons/md";
+import { useRouter } from 'next/navigation';
 
 export default function consult() {
+  const router = useRouter()
+
   return (
     <>
       <Navbar state={3} />
       <section className='consult'>
         <section className='consult_profile'>
-          <a href="/project"><FaArrowLeft /></a>
+          <button type='button' onClick={() => router.back()}><FaArrowLeft /></button>
           <div className='consult_profile-info'>
             <div className='avatar'>
               <div className='avatar_img'>

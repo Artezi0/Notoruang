@@ -10,8 +10,6 @@ export default function Room() {
   const [targets, setTargets] = useState([])
   const [active, setActive] = useState(false)
   
-  console.log(active)
-
   return (
   <section className='room'>
     <div className='container'>

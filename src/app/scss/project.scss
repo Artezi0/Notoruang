@@ -114,6 +114,14 @@
             gap: 1em;
             position: relative;
 
+            &_info {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: flex-start;
+            }
+
             .tag {
               top: 8%;
               right: 3%;

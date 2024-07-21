@@ -1,18 +1,43 @@
 'use client';
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Navbar from "./components/Navbar"
 import Slider from "react-slick";
 import { IoSearch } from "react-icons/io5";
-import { doc, collection, onSnapshot, addDoc, deleteDoc } from 'firebase/firestore'
+import { doc, collection, onSnapshot, setDoc } from 'firebase/firestore'
 import { db } from "./firebase";
 import Image from "next/image";
 import './scss/main.scss'
 import { useRouter } from "next/navigation";
+import { v4 as uuid } from "uuid";
 
 export default function Home() {
   const [ project, setProject ] = useState([])
+  const [dragging, setDragging] = useState(false)
   const router = useRouter()
+
+  const handleBeforeChange = useCallback(() => {
+    setDragging(true)
+  }, [setDragging])
+  
+  const handleAfterChange = useCallback(() => {
+    setDragging(false)
+  }, [setDragging])
+  
+  const handleOnItemClick = useCallback((e) => {
+    if (dragging) e.stopPropagation()
+    },
+    [dragging]
+  ) 
+
+  async function createProject() {
+    let data = {
+      'name' : 'Untitled',
+      'image' : Math.floor(Math.random() * (8 - 1)) + 1,
+      'data' : { }
+    }
+    await setDoc(doc(db, "project", uuid()), data)
+  } 
 
   useEffect(() => {
     onSnapshot(collection(db, 'project'), (snapShot) => {
@@ -27,12 +52,15 @@ export default function Home() {
   })}, [])
 
   const settings = {
-    dots: false,
+    dots: true,
     infinite: false,
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 3,
-    arrows: false
+    arrows: false,
+    easing: 'ease',
+    beforeChange: handleBeforeChange,
+    afterChange: handleAfterChange
   }
 
   return (
@@ -50,15 +78,18 @@ export default function Home() {
         <section className="main_projects">
           <h3>Your Project</h3>
           <div className="main_projects-project project">
-            <button type="button" className="project_add btn2">+</button>
-            <Slider className="project_list" {...settings}>
-              {project.map(({ uid, title, image }) => {
+            <Slider 
+              className="project_list" 
+              {...settings}
+            >
+              <button type="button" className="project_list-add btn2" onClick={() => createProject()}>+</button>
+              {project.map(({ id, name, image }) => {
                 return (
-                  <div className="item" key={uid} onClick={() => router.push('/project')}>
+                  <div className="item" key={id} onClickCapture={handleOnItemClick} onClick={() => router.push(`/project/${id}`)}>
                     <div className="item_img">
-                      <Image src={`/rooms/${image}`} alt="thumb" fill/>
+                      <Image src={`/rooms/room${image}.jpg`} alt="thumb" fill objectFit="cover"/>
                     </div>
-                    <p>{title}</p>
+                    <p>{name}</p>
                   </div>
                 )
               })}
