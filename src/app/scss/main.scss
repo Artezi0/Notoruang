@@ -84,24 +84,53 @@
         .slick-list {
           margin: 0 -5px;
         }
-  
-        .item {
+        
+        .container {
           height: 200px;
-          border-radius: 10px;
-          padding: .5em;
           position: relative;
-          background-color: white;
-  
-          &_img {
-            height: 85%;
-            width: 100%;
-            border-radius: 5px;
-            overflow: hidden;
-            position: relative;
+          border: none;
+          
+          &_del {
+            position: absolute;
+            z-index: 2;
+            right: 15px;
+            top: 15px;
+            
+            button {
+              width: 3em;
+              height: 3em;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: white;
+              padding: 1em;
+              border-radius: 50%;
+              
+              &:hover {
+                color: white;
+                background-color: $orange3;
+              }
+            }
           }
   
-          p {
-            margin-top: .5em;
+          &_item {
+            height: 100%;
+            padding: .5em;
+            background-color: white;
+            position: relative;
+            z-index: 1;
+    
+            &-img {
+              height: 85%;
+              width: 100%;
+              border-radius: 5px;
+              overflow: hidden;
+              position: relative;
+            }
+    
+            p {
+              margin-top: .5em;
+            }
           }
         }
       }

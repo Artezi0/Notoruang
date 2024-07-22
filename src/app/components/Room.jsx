@@ -4,18 +4,29 @@ import Moveable from 'react-moveable'
 import Selecto from 'react-selecto'
 import data from './data.json'
 import '../scss/room.scss'
+import { doc, collection, onSnapshot, setDoc, deleteDoc } from 'firebase/firestore'
 
 export default function Room() {
   const moveableRef = useRef(null)
   const [targets, setTargets] = useState([])
   const [active, setActive] = useState(false)
-  
+  const selectedId = targets.map((target) => target.id)
+
+  // window.addEventListener('keydown', function(e) {
+  //   const key = e.key
+  //   let removeId = data.filter((data) => data.uid.includes(selectedId))
+ 
+  //   if (key == "Delete") {
+  //     console.log(removeId)
+  //   }
+  // })  
+
   return (
   <section className='room'>
     <div className='container'>
       {data.map(({uid, asset, width, height}) => {
         return (
-          <div className='target' key={uid}>
+          <div className='target' key={uid} id={uid}>
             <Image src={`${asset}`} loading='lazy' alt='item' width={width} height={height}/>
           </div>
         )

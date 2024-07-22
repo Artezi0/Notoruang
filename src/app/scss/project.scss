@@ -149,8 +149,11 @@
           gap: 2em;
 
           .image {
-            &_up {
+            p {
               margin: 10px 0;
+            }
+
+            &_up {
               width: 100%;
               height: 15em;
               position: relative;

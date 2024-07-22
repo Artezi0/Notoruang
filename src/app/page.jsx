@@ -4,18 +4,20 @@ import React, { useEffect, useState, useCallback } from "react";
 import Navbar from "./components/Navbar"
 import Slider from "react-slick";
 import { IoSearch } from "react-icons/io5";
-import { doc, collection, onSnapshot, setDoc } from 'firebase/firestore'
+import { doc, collection, onSnapshot, setDoc, deleteDoc } from 'firebase/firestore'
 import { db } from "./firebase";
 import Image from "next/image";
 import './scss/main.scss'
 import { useRouter } from "next/navigation";
 import { v4 as uuid } from "uuid";
+import { FiTrash } from "react-icons/fi";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
   const [ project, setProject ] = useState([])
   const [dragging, setDragging] = useState(false)
   const router = useRouter()
-
   const handleBeforeChange = useCallback(() => {
     setDragging(true)
   }, [setDragging])
@@ -29,15 +31,17 @@ export default function Home() {
     },
     [dragging]
   ) 
-
-  async function createProject() {
-    let data = {
-      'name' : 'Untitled',
-      'image' : Math.floor(Math.random() * (8 - 1)) + 1,
-      'data' : { }
-    }
-    await setDoc(doc(db, "project", uuid()), data)
-  } 
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 3,
+    arrows: false,
+    easing: 'ease',
+    beforeChange: handleBeforeChange,
+    afterChange: handleAfterChange
+  }
 
   useEffect(() => {
     onSnapshot(collection(db, 'project'), (snapShot) => {
@@ -51,16 +55,17 @@ export default function Home() {
       console.warn(error)
   })}, [])
 
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 6,
-    slidesToScroll: 3,
-    arrows: false,
-    easing: 'ease',
-    beforeChange: handleBeforeChange,
-    afterChange: handleAfterChange
+  async function createProject() {
+    let data = {
+      'name' : 'Project',
+      'image' : Math.floor(Math.random() * (8 - 1)) + 1,
+      'data' : { }
+    }
+    await setDoc(doc(db, "project", uuid()), data)
+  } 
+
+  async function deleteProject(id) {
+    await deleteDoc(doc(db, "project", id))
   }
 
   return (
@@ -85,11 +90,16 @@ export default function Home() {
               <button type="button" className="project_list-add btn2" onClick={() => createProject()}>+</button>
               {project.map(({ id, name, image }) => {
                 return (
-                  <div className="item" key={id} onClickCapture={handleOnItemClick} onClick={() => router.push(`/project/${id}`)}>
-                    <div className="item_img">
-                      <Image src={`/rooms/room${image}.jpg`} alt="thumb" fill objectFit="cover"/>
+                  <div className="container" key={id}>
+                    <div className="container_del">
+                      <button type="button" onClick={() => deleteProject(id)}><span><FiTrash /></span></button>
                     </div>
-                    <p>{name}</p>
+                    <div className="container_item" onClickCapture={handleOnItemClick} onClick={() => router.push(`/project/${id}`)}>
+                      <div className="container_item-img">
+                        <Image src={`/rooms/room${image}.jpg`} alt="thumb" objectFit="cover" width={300} height={180}/>
+                      </div>
+                      <p>{name}</p>
+                    </div>
                   </div>
                 )
               })}

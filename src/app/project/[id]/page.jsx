@@ -14,6 +14,7 @@ import { MdOutlinePermContactCalendar } from "react-icons/md";
 import data from './data.json'
 import roomData from '@/app/components/data.json'
 import '@/app/scss/project.scss'
+import { v4 as uuid } from 'uuid';
 
 export default function Project() {
   const [basic, isBasic] = useState(false)
@@ -25,7 +26,7 @@ export default function Project() {
   
   function handleCreate(uid, asset, width, height) {
     let obj = {
-      "uid" : uid,
+      "uid" : uuid(),
       "asset": asset,
       "width": width,
       "height": height
