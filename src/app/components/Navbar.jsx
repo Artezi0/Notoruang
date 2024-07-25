@@ -5,9 +5,11 @@ import { useRouter } from 'next/navigation'
 import '../scss/navbar.scss'
 import Image from 'next/image'
 import { CgProfile } from "react-icons/cg";
+import { Context } from '../context'
 
 export default function Navbar({ state }) {
   const router = useRouter()
+  const { handleUpdate } = Context()
 
   return (
     <nav className='navbar'>
@@ -21,7 +23,7 @@ export default function Navbar({ state }) {
         }
         {state == 1 &&
           <div className="navbar_btn">
-            <button className='btn2' type='button' onClick={() => router.push('/')}>Save</button>
+            <button className='btn2' type='button' onClick={handleUpdate}>Save</button>
           </div>
         }
         {state == 2 &&

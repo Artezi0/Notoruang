@@ -1,33 +1,26 @@
 import Image from 'next/image'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Moveable from 'react-moveable'
 import Selecto from 'react-selecto'
-import data from './data.json'
+import { Context } from '../context'
 import '../scss/room.scss'
-import { doc, collection, onSnapshot, setDoc, deleteDoc } from 'firebase/firestore'
 
 export default function Room() {
   const moveableRef = useRef(null)
-  const [targets, setTargets] = useState([])
-  const [active, setActive] = useState(false)
-  const selectedId = targets.map((target) => target.id)
+  const [targets, setTargets] = useState([])  
+  const { items, getActive } = Context()
 
-  // window.addEventListener('keydown', function(e) {
-  //   const key = e.key
-  //   let removeId = data.filter((data) => data.uid.includes(selectedId))
- 
-  //   if (key == "Delete") {
-  //     console.log(removeId)
-  //   }
-  // })  
+  // useEffect(() => {
+  //   items.push(getActive().data)
+  // }, [])
 
   return (
   <section className='room'>
     <div className='container'>
-      {data.map(({uid, asset, width, height}) => {
+      {items.map(({uid, asset, size}) => {
         return (
-          <div className='target' key={uid} id={uid}>
-            <Image src={`${asset}`} loading='lazy' alt='item' width={width} height={height}/>
+          <div className='target' key={uid}>
+            <Image src={`${asset}`} loading='lazy' alt='item' width={size} height={size}/>
           </div>
         )
       })}
