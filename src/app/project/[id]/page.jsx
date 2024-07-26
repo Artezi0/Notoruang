@@ -22,7 +22,7 @@ export default function Project() {
   const [shop, isShop] = useState(false)
   const [consult, isConsult] = useState(false)
   const [zoom, setZoom] = useState(50)
-  const {items, handleItems} = Context()
+  const {items, handleItems } = Context()
 
   return (
     <>

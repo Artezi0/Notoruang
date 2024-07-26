@@ -63,7 +63,7 @@ export function AuthContextProvider({ children }) {
       data: items,
     })
     router.push('/')
-    items([])
+    setItems([])
   }
 
   return (
@@ -75,6 +75,7 @@ export function AuthContextProvider({ children }) {
         createProject,
         deleteProject,
         getActive,
+        setItems,
         items,
         handleItems,
         handleUpdate

@@ -8,12 +8,10 @@ import '../scss/room.scss'
 export default function Room() {
   const moveableRef = useRef(null)
   const [targets, setTargets] = useState([])  
-  const { items, getActive } = Context()
+  const { items, active, getActive, setItems } = Context()
 
-  // useEffect(() => {
-  //   items.push(getActive().data)
-  // }, [])
-
+  setItems(getActive().data)
+  
   return (
   <section className='room'>
     <div className='container'>
