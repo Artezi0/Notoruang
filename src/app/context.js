@@ -56,7 +56,6 @@ export function AuthContextProvider({ children }) {
       'size': size,
       'style': ''
     }
-    console.log(items)
     items.push(obj)
   }
 
@@ -83,7 +82,7 @@ export function AuthContextProvider({ children }) {
         items,
         setStyle,
         handleItems,
-        handleUpdate
+        handleUpdate,
       }}>
       {children}
     </UserContext.Provider>

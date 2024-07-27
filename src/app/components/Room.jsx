@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React, { useEffect, useRef, useState, useCallback } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Moveable from 'react-moveable'
 import Selecto from 'react-selecto'
 import { Context } from '../context'
@@ -28,7 +28,7 @@ export default function Room() {
         console.log(err)
       })
       setItems(prevArr)
-  }})
+  }}, [active, router, setItems])
 
   return (
   <section className='room'>

@@ -40,6 +40,11 @@ export default function Home() {
     afterChange: handleAfterChange
   }
 
+  function openProject(id) {
+    router.push(`/project/${id}`)
+    setActive(id)
+  }
+
   return (
     <>
       <Navbar state={0} />
@@ -63,7 +68,7 @@ export default function Home() {
                     <div className="container_del">
                       <button type="button" onClick={() => deleteProject(id)}><span><FiTrash /></span></button>
                     </div>
-                    <div className="container_item" onClickCapture={handleOnItemClick} onClick={() => router.push(`/project/${id}`) & setActive(id)}>
+                    <div className="container_item" onClickCapture={handleOnItemClick} onClick={() => openProject(id)}>
                       <div className="container_item-img">
                         <Image src={`/rooms/room${image}.webp`} alt="thumb" width={300} height={180}/>
                       </div>

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Navbar from '@/app/components/Navbar';
 import Image from 'next/image';
 import Room from '@/app/components/Room';
@@ -23,7 +23,7 @@ export default function Project() {
   const [consult, isConsult] = useState(false)
   const [zoom, setZoom] = useState(50)
   const { handleItems } = Context()
-  
+
   return (
       <>
       <Navbar state={1} />
@@ -133,7 +133,7 @@ export default function Project() {
             }
           </div>
           <div className='view'>
-            <Room zoom={zoom} />
+            <Room />
           </div>
         </div>
         <div className="canvas_set">
