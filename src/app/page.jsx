@@ -15,7 +15,7 @@ import "slick-carousel/slick/slick-theme.css";
 export default function Home() {
   const router = useRouter()
   const [dragging, setDragging] = useState(false)  
-  const { project, setActive, createProject, deleteProject } = Context()
+  const { project, createProject, deleteProject } = Context()
 
   const handleBeforeChange = useCallback(() => {
     setDragging(true)
@@ -41,8 +41,8 @@ export default function Home() {
   }
 
   function openProject(id) {
+    localStorage.setItem('active', JSON.stringify(id))
     router.push(`/project/${id}`)
-    setActive(id)
   }
 
   return (

@@ -16,20 +16,19 @@ export default function Room() {
 
   useEffect(() => {
     let prevArr = []
-    if (!active) {
-      router.push('/')
-    } else {
-      getDoc(doc(db, "project", active))
-      .then((prevItems) => {
-        prevItems.data().data.forEach((x) => {
-          prevArr.push(x)
-        })
-      }).catch((err) => {
-        console.log(err)
-      })
-      setItems(prevArr)
-  }}, [active, router, setItems])
+    active.current = JSON.parse(localStorage.getItem('active'))
 
+    getDoc(doc(db, "project", active.current))
+    .then((prevItems) => {
+      prevItems.data().data.forEach((x) => {
+        prevArr.push(x)
+      })
+    }).catch((err) => {
+      console.log(err)
+    })
+    setItems(prevArr)
+  }, [active, router, setItems])
+  
   return (
   <section className='room'>
     <div className='container'>

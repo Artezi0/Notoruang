@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
-import { doc, collection, onSnapshot, setDoc, updateDoc, deleteDoc } from 'firebase/firestore'
+import React, { createContext, useContext, useEffect, useRef, useState } from 'react'
+import { doc, collection, onSnapshot, setDoc, getDoc, updateDoc, deleteDoc } from 'firebase/firestore'
 import { db } from './firebase'
 import { v4 as uuid } from "uuid"
 import { useRouter } from 'next/navigation'
@@ -10,10 +10,10 @@ export function AuthContextProvider({ children }) {
   const [ project, setProject ] = useState([])
   const [ items, setItems ] = useState([])
   const [ style, setStyle ] = useState('')
-  const [ active, setActive ] = useState(false)
+  const active = useRef(false)
   const router = useRouter()
 
-  // Connect to database 
+  // Get Projects 
   useEffect(() => {
     onSnapshot(collection(db, 'project'), (snapShot) => {
       let list = []      
@@ -61,11 +61,12 @@ export function AuthContextProvider({ children }) {
 
   // Save project
   async function handleUpdate() {
-    await updateDoc(doc(db, 'project', active), {
+    await updateDoc(doc(db, 'project', active.current), {
       data: items,
       style: style
     })
     router.push('/')
+    localStorage.removeItem('active')
     setItems([])
   }
 
@@ -73,7 +74,6 @@ export function AuthContextProvider({ children }) {
     <UserContext.Provider 
       value={{ 
         project,
-        setActive,
         active,
         createProject,
         deleteProject,
