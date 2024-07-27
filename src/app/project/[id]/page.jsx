@@ -22,10 +22,10 @@ export default function Project() {
   const [shop, isShop] = useState(false)
   const [consult, isConsult] = useState(false)
   const [zoom, setZoom] = useState(50)
-  const {items, handleItems } = Context()
-
+  const { handleItems } = Context()
+  
   return (
-    <>
+      <>
       <Navbar state={1} />
       <section className='canvas'>
         <div className='canvas_content'>
@@ -133,7 +133,7 @@ export default function Project() {
             }
           </div>
           <div className='view'>
-            <Room zoom={zoom} item={items} />
+            <Room zoom={zoom} />
           </div>
         </div>
         <div className="canvas_set">

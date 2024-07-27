@@ -1,17 +1,35 @@
 import Image from 'next/image'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
 import Moveable from 'react-moveable'
 import Selecto from 'react-selecto'
 import { Context } from '../context'
 import '../scss/room.scss'
+import { doc, getDoc } from 'firebase/firestore'
+import { db } from '../firebase'
+import { useRouter } from 'next/navigation'
 
 export default function Room() {
   const moveableRef = useRef(null)
   const [targets, setTargets] = useState([])  
-  const { items, active, getActive, setItems } = Context()
+  const { setItems, items, active } = Context()
+  const router = useRouter()
 
-  setItems(getActive().data)
-  
+  useEffect(() => {
+    let prevArr = []
+    if (!active) {
+      router.push('/')
+    } else {
+      getDoc(doc(db, "project", active))
+      .then((prevItems) => {
+        prevItems.data().data.forEach((x) => {
+          prevArr.push(x)
+        })
+      }).catch((err) => {
+        console.log(err)
+      })
+      setItems(prevArr)
+  }})
+
   return (
   <section className='room'>
     <div className='container'>

@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { doc, collection, onSnapshot, setDoc, updateDoc, deleteDoc } from 'firebase/firestore'
 import { db } from './firebase'
 import { v4 as uuid } from "uuid"
@@ -9,6 +9,7 @@ const UserContext = createContext()
 export function AuthContextProvider({ children }) {  
   const [ project, setProject ] = useState([])
   const [ items, setItems ] = useState([])
+  const [ style, setStyle ] = useState('')
   const [ active, setActive ] = useState(false)
   const router = useRouter()
 
@@ -53,7 +54,9 @@ export function AuthContextProvider({ children }) {
       'uid': uuid(),
       'asset': asset,
       'size': size,
+      'style': ''
     }
+    console.log(items)
     items.push(obj)
   }
 
@@ -61,6 +64,7 @@ export function AuthContextProvider({ children }) {
   async function handleUpdate() {
     await updateDoc(doc(db, 'project', active), {
       data: items,
+      style: style
     })
     router.push('/')
     setItems([])
@@ -77,6 +81,7 @@ export function AuthContextProvider({ children }) {
         getActive,
         setItems,
         items,
+        setStyle,
         handleItems,
         handleUpdate
       }}>
