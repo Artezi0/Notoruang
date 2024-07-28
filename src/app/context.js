@@ -9,7 +9,7 @@ const UserContext = createContext()
 export function AuthContextProvider({ children }) {  
   const [ project, setProject ] = useState([])
   const [ items, setItems ] = useState([])
-  const [ style, setStyle ] = useState('')
+  const [ activeId, setActiveId ] = useState('')
   const active = useRef(false)
   const router = useRouter()
 
@@ -51,19 +51,24 @@ export function AuthContextProvider({ children }) {
   // Create items
   function handleItems(size, asset) {
     let obj = {
-      'uid': uuid(),
-      'asset': asset,
-      'size': size,
-      'style': ''
+      uid: uuid(),
+      asset: asset,
+      size: size,
+      transform: ''
     }
     items.push(obj)
   }
 
+  function savePosition(style) {
+    let activeItems = items.filter((item) => item.uid.includes(activeId))
+    activeItems[0].transform = style 
+  }
+  
   // Save project
   async function handleUpdate() {
+    let activeItems = items.filter((item) => item.uid.includes(activeId))
     await updateDoc(doc(db, 'project', active.current), {
       data: items,
-      style: style
     })
     router.push('/')
     localStorage.removeItem('active')
@@ -80,9 +85,11 @@ export function AuthContextProvider({ children }) {
         getActive,
         setItems,
         items,
-        setStyle,
         handleItems,
         handleUpdate,
+        savePosition,
+        activeId,
+        setActiveId
       }}>
       {children}
     </UserContext.Provider>
