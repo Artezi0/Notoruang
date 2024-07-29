@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation'
 export default function Room() {
   const moveableRef = useRef(null)
   const [targets, setTargets] = useState([])  
-  const { setItems, items, active, savePosition, setActiveId } = Context()
+  const { setItems, items, active, savePosition } = Context()
   const router = useRouter()
 
   useEffect(() => {
@@ -40,7 +40,6 @@ export default function Room() {
         )
       })}
       <Moveable
-        onClick={(e) => setActiveId(e.target.id)}
         ref={moveableRef}
         target={targets}
         individualGroupable={true}
@@ -64,7 +63,7 @@ export default function Room() {
           e.target.style.transform = e.drag.transform;
         }}
         onRender={e => 
-          savePosition(e.transform)
+          savePosition(e.transform, e.target.id)
         }
         />
       <Selecto

@@ -9,7 +9,6 @@ const UserContext = createContext()
 export function AuthContextProvider({ children }) {  
   const [ project, setProject ] = useState([])
   const [ items, setItems ] = useState([])
-  const [ activeId, setActiveId ] = useState('')
   const active = useRef(false)
   const router = useRouter()
 
@@ -59,14 +58,13 @@ export function AuthContextProvider({ children }) {
     items.push(obj)
   }
 
-  function savePosition(style) {
-    let activeItems = items.filter((item) => item.uid.includes(activeId))
+  function savePosition(style, test) {
+    let activeItems = items.filter((item) => item.uid.includes(test))
     activeItems[0].transform = style 
   }
   
   // Save project
   async function handleUpdate() {
-    let activeItems = items.filter((item) => item.uid.includes(activeId))
     await updateDoc(doc(db, 'project', active.current), {
       data: items,
     })
@@ -88,8 +86,6 @@ export function AuthContextProvider({ children }) {
         handleItems,
         handleUpdate,
         savePosition,
-        activeId,
-        setActiveId
       }}>
       {children}
     </UserContext.Provider>
