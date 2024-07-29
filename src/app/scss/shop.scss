@@ -60,7 +60,7 @@
       display: flex;
       padding: 0 10%;
       flex-direction: column;
-      width: 100%;      
+      width: 100%;     
 
       a {
         font-size: 18px;
@@ -103,6 +103,12 @@
       }
 
       &_info {
+        &-price {
+          display: flex;
+          align-items: center;
+          gap: 1em;
+        }
+
         ul {
           margin: 1em 0;
           padding-left: 18px;
@@ -110,6 +116,11 @@
         
         .price {
           font-size: 3em;
+        }
+
+        .discount {
+          color: grey;
+          text-decoration: line-through;
         }
       }
     }

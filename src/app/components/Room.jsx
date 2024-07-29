@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation'
 
 export default function Room() {
   const moveableRef = useRef(null)
-  const [targets, setTargets] = useState([])  
+  const [ targets, setTargets ] = useState([])  
   const { setItems, items, active, savePosition } = Context()
   const router = useRouter()
 

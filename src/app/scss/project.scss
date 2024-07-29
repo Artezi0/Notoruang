@@ -121,6 +121,19 @@
               justify-content: center;
               align-items: flex-start;
               background: none;
+
+              &-price {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                gap: 10px;
+
+                p {
+                  font-weight: 600;
+                  text-decoration: line-through;
+                  color: grey;
+                }
+              }
             }
 
             .tag {
