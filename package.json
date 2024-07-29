@@ -17,6 +17,7 @@
     "react-dom": "^18",
     "react-icons": "^5.2.1",
     "react-moveable": "^0.56.0",
+    "react-multi-carousel": "^2.8.5",
     "react-selecto": "^1.26.3",
     "react-slick": "^0.30.2",
     "react-uid": "^2.3.3",

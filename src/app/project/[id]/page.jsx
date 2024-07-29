@@ -1,9 +1,10 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Navbar from '@/app/components/Navbar';
 import Image from 'next/image';
 import Room from '@/app/components/Room';
+import data from './data.json'
 import { PiPottedPlant } from "react-icons/pi";
 import { LuSofa } from "react-icons/lu";
 import { IoSearch } from "react-icons/io5";
@@ -11,10 +12,9 @@ import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2";
 import { LuCrown } from "react-icons/lu";
 import { LuShoppingCart } from "react-icons/lu";
 import { MdOutlinePermContactCalendar } from "react-icons/md";
-import data from './data.json'
-import roomData from '@/app/components/data.json'
-import '@/app/scss/project.scss'
 import { v4 as uuid } from 'uuid';
+import { Context } from '@/app/context';
+import '@/app/scss/project.scss'
 
 export default function Project() {
   const [basic, isBasic] = useState(false)
@@ -22,20 +22,10 @@ export default function Project() {
   const [shop, isShop] = useState(false)
   const [consult, isConsult] = useState(false)
   const [zoom, setZoom] = useState(50)
-  const [room, isRoom] = useState(false)
-  
-  function handleCreate(uid, asset, width, height) {
-    let obj = {
-      "uid" : uuid(),
-      "asset": asset,
-      "width": width,
-      "height": height
-    }
-    roomData.push(obj)
-  }
+  const { handleItems } = Context()
 
   return (
-    <>
+      <>
       <Navbar state={1} />
       <section className='canvas'>
         <div className='canvas_content'>
@@ -54,10 +44,10 @@ export default function Project() {
                   <span><HiOutlineAdjustmentsHorizontal/></span>
                 </div>
                 <div className='sidebar_content-items'>
-                  {data.basic.map(({uid, image, green, width, height, asset}) => {
+                  {data.basic.map(({image, asset, size, green}) => {
                     return (
-                      <div className='item' key={uid} onClick={() => handleCreate(uid, asset, width, height)}>
-                        <Image src={`${image}`} loading='lazy' objectFit='contain' fill alt='item'/>
+                      <div className='item' key={uuid()} onClick={() => handleItems(size, asset)}>
+                        <Image src={`${image}`} loading='lazy' fill alt='item'/>
                         {green && <Image className='tag' src={`/green.png`} loading='lazy' width={30} height={30} alt='tag' />}
                       </div>
                     )
@@ -73,9 +63,9 @@ export default function Project() {
                   <span><HiOutlineAdjustmentsHorizontal/></span>
                 </div>
                 <div className='sidebar_content-items'>
-                  {data.decor.map(({uid, image, green, width, height, asset}) => {
+                  {data.decor.map(({image, asset, size, green}) => {
                     return (
-                      <div className='item' key={uid} onClick={() => handleCreate(uid, asset, width, height)}>
+                      <div className='item' key={uuid()} onClick={() => handleItems(size, asset)}>
                         <Image src={`${image}`} loading='lazy' objectFit='contain' fill alt='item'/>
                         {green && <Image className='tag' src={`/green.png`} loading='lazy' width={30} height={30} alt='tag' />}
                       </div>
@@ -122,7 +112,7 @@ export default function Project() {
                   <div className='image'>
                     <p>Upload reference photo</p>
                     <div className='image_up'>
-                      <Image src={`/rooms/room7.jpg`} loading='lazy' objectFit='cover' fill alt='upload' />
+                      <Image src={`/rooms/room7.webp`} loading='lazy' objectFit='cover' fill alt='upload' />
                     </div>
                     <p>Room Dimension</p>
                     <div className='image_input'>
@@ -143,7 +133,7 @@ export default function Project() {
             }
           </div>
           <div className='view'>
-            <Room zoom={zoom} />
+            <Room />
           </div>
         </div>
         <div className="canvas_set">

@@ -1,33 +1,41 @@
 import Image from 'next/image'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Moveable from 'react-moveable'
 import Selecto from 'react-selecto'
-import data from './data.json'
+import { Context } from '../context'
 import '../scss/room.scss'
-import { doc, collection, onSnapshot, setDoc, deleteDoc } from 'firebase/firestore'
+import { doc, getDoc } from 'firebase/firestore'
+import { db } from '../firebase'
+import { useRouter } from 'next/navigation'
 
 export default function Room() {
   const moveableRef = useRef(null)
-  const [targets, setTargets] = useState([])
-  const [active, setActive] = useState(false)
-  const selectedId = targets.map((target) => target.id)
+  const [targets, setTargets] = useState([])  
+  const { setItems, items, active, savePosition } = Context()
+  const router = useRouter()
 
-  // window.addEventListener('keydown', function(e) {
-  //   const key = e.key
-  //   let removeId = data.filter((data) => data.uid.includes(selectedId))
- 
-  //   if (key == "Delete") {
-  //     console.log(removeId)
-  //   }
-  // })  
+  useEffect(() => {
+    let prevArr = []
+    active.current = JSON.parse(localStorage.getItem('active'))
 
+    getDoc(doc(db, "project", active.current))
+    .then((prevItems) => {
+      prevItems.data().data.forEach((x) => {
+        prevArr.push(x)
+      })
+    }).catch((err) => {
+      console.log(err)
+    })
+    setItems(prevArr)
+  }, [active, router, setItems])
+  
   return (
   <section className='room'>
     <div className='container'>
-      {data.map(({uid, asset, width, height}) => {
+      {items.map(({uid, asset, size, transform}) => {
         return (
-          <div className='target' key={uid} id={uid}>
-            <Image src={`${asset}`} loading='lazy' alt='item' width={width} height={height}/>
+          <div className='target' id={uid} key={uid} style={{ cursor: 'grab', transform: transform}}>
+            <Image src={`${asset}`} loading='lazy' alt='item' width={size} height={size}/>
           </div>
         )
       })}
@@ -54,6 +62,9 @@ export default function Room() {
         onRotate={e => {
           e.target.style.transform = e.drag.transform;
         }}
+        onRender={e => 
+          savePosition(e.transform, e.target.id)
+        }
         />
       <Selecto
         dragContainer={".container"}
