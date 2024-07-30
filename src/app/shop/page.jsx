@@ -41,7 +41,10 @@ export default function page() {
               <li>Baterai AA.</li>
               <li>Diameter 40 meter</li>
             </ul>
-            <h2 className='name price'>Rp174.500</h2>
+            <div className='product_info-price'>
+              <h2 className='name price discount'>Rp200.000</h2>
+              <h2 className='name price'>Rp174.500</h2>
+            </div>
           </div>
         </div>
         <div className='product'>
@@ -58,7 +61,10 @@ export default function page() {
               <li>Produk Baru.</li>
               <li>Diameter terluas 1 meter.</li>
             </ul>
-            <h2 className='name price'>Rp98.000</h2>
+            <div className='product_info-price'>
+              <h2 className='name price discount'>Rp150.000</h2>
+              <h2 className='name price'>Rp98.000</h2>
+            </div>
           </div>
         </div>
       </section>

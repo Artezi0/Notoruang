@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import Navbar from '@/app/components/Navbar';
 import Image from 'next/image';
 import Room from '@/app/components/Room';
@@ -89,7 +89,10 @@ export default function Project() {
                     </div>
                     <div className='shop_info'>
                       <h3>Jam Kayu Jati</h3>
-                      <h2>Rp174.500</h2>
+                      <div className='shop_info-price'>
+                        <p>Rp200.000</p>
+                        <h2>Rp174.500</h2>
+                      </div>
                       <a href="/shop">See more</a>
                     </div>
                   </div>
@@ -99,7 +102,10 @@ export default function Project() {
                     </div>
                     <div className='shop_info'>
                       <h3>Vas Bunga Gerabah</h3>
-                      <h2>Rp98.0000</h2>
+                      <div className='shop_info-price'>
+                        <p>Rp150.000</p>
+                        <h2>Rp98.0000</h2>
+                      </div>
                       <a href="/shop">See more</a>
                     </div>
                   </div>
