@@ -17,6 +17,24 @@
       "asset": "/2d/pot.png",
       "size": 60,
       "green": false
+    },
+    {
+      "image": "/decor/vase3.png",
+      "asset": "/2d/vase3.png",
+      "size": 60,
+      "green": false
+    },
+    {
+      "image": "/decor/rotan.png",
+      "asset": "/2d/rotan.png",
+      "size": 60,
+      "green": false
+    },
+    {
+      "image": "/decor/vase4.png",
+      "asset": "/2d/vase.png",
+      "size": 60,
+      "green": false
     }
   ],
   "basic": [
@@ -30,6 +48,12 @@
       "image": "/basic/chair.png",
       "asset": "/2d/chair.png",
       "size": 120,
+      "green": false
+    },
+    {
+      "image": "/basic/sofa.png",
+      "asset": "/2d/sofa.png",
+      "size": 200,
       "green": false
     }
   ]
